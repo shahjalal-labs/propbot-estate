@@ -1,10 +1,12 @@
-## 🚀 Intro
-Repository: shahjalal-labs/propbot-estate
+gh repo edit shahjalal-labs/propbot-estate --description "" --homepage ""
+gh repo edit shahjalal-labs/propbot-estate --remove-topic portfolio
+gh repo edit shahjalal-labs/propbot-estate --remove-topic react
+gh repo edit shahjalal-labs/propbot-estate --remove-topic tailwind
+gh repo edit shahjalal-labs/propbot-estate --remove-topic vite
 
-```bash
-gh repo edit shahjalal-labs/propbot-estate --description "// navbarLinks.jsx import { NavLink } from \\\"react-router\\\"; import {   Home,   ShoppingBag,   Key,   BadgeDollarSign,   Info,   Phone, } from \\\"lucide-react\\\";" --homepage "http://your-homepage.example.com"
-gh repo edit shahjalal-labs/propbot-estate --add-topic portfolio
+gh repo edit shahjalal-labs/propbot-estate --description "Real estate app with API listings & Firebase Auth. Pages: Home, Listings, Signup, Login. TailwindCSS. Responsive." --homepage "https://propbotestate.surge.sh"
 gh repo edit shahjalal-labs/propbot-estate --add-topic react
-gh repo edit shahjalal-labs/propbot-estate --add-topic tailwind
-gh repo edit shahjalal-labs/propbot-estate --add-topic vite
-```
+gh repo edit shahjalal-labs/propbot-estate --add-topic tailwindcss
+gh repo edit shahjalal-labs/propbot-estate --add-topic firebase
+gh repo edit shahjalal-labs/propbot-estate --add-topic real-estate
+
