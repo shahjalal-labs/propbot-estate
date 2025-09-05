@@ -2,7 +2,7 @@ import { MapPin, Search } from "lucide-react";
 
 export default function SearchInput() {
   return (
-    <div className="relative w-72 sm:min-w-[620px]">
+    <div className="relative w-72 sm:min-w-[600px]">
       {/* Left Icon */}
       <MapPin
         className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500"

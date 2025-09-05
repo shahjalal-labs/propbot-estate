@@ -15,11 +15,6 @@ const slides = [
     img: slider2,
     alt: "Property 2",
   },
-  {
-    id: 3,
-    img: "https://picsum.photos/1200/500?random=3",
-    alt: "Property 3",
-  },
 ];
 
 export default function HeroCarousel() {
@@ -47,10 +42,10 @@ export default function HeroCarousel() {
       </Carousel>
 
       {/* Transparent Overlay */}
-      <div className="absolute inset-0  bg-black/20 flex   justify-center rounded-3xl text-white py-10 border border-red-500">
+      <div className="absolute inset-0  bg-black/20 flex   justify-center rounded-3xl text-white py-10 border border-red-500 p-8">
         <div className=" w-full">
-          <div className="text-center space-y-4 border">
-            <h2 className="text-2xl font-black">
+          <div className="text-center space-y-2 border">
+            <h2 className="text-2xl font-black max-sm:text-xl">
               Find Your Dream Home in One Click!
             </h2>
 
@@ -58,9 +53,9 @@ export default function HeroCarousel() {
               Discover, Buy, or Rent Verified Properties with Ease.
             </p>
           </div>
-          <div className="flex  items-center gap-4 justify-around border border-green-500 w-full flex-1 pt-44">
+          <div className="md:flex  items-center gap-4 justify-around border border-green-500 w-full flex-1 pt-8 sm:pt-44 max-md:px-8">
             <SearchInput />
-            <button className="badge w-fit rounded-full  px-3 py-4 ">
+            <button className="badge w-fit rounded-full  px-3 py-4 max-md:mt-2">
               List Your Property
             </button>
           </div>
