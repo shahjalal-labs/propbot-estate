@@ -1,319 +1,65 @@
+"use client";
 import { Carousel } from "react-responsive-carousel";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import {
-  FaChevronLeft,
-  FaChevronRight,
-  FaMapMarkerAlt,
-  FaStar,
-} from "react-icons/fa";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Link } from "react-router";
 
-const Slider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+const slides = [
+  {
+    id: 1,
+    img: "https://picsum.photos/1200/500?random=1",
+    alt: "Property 1",
+  },
+  {
+    id: 2,
+    img: "https://picsum.photos/1200/500?random=2",
+    alt: "Property 2",
+  },
+  {
+    id: 3,
+    img: "https://picsum.photos/1200/500?random=3",
+    alt: "Property 3",
+  },
+];
 
-  const slides = [
-    {
-      img: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      heading: "Experience Bangladesh",
-      sub: "Your gateway to authentic cultural adventures and hidden gems",
-      location: "Nationwide Tours",
-      rating: 4.9,
-      color: "cyan",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      heading: "Cox's Bazar Beach",
-      sub: "World's longest natural sea beach with golden sunsets",
-      location: "Cox's Bazar",
-      rating: 4.8,
-      color: "purple",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      heading: "Sundarbans Mangrove",
-      sub: "UNESCO World Heritage site with Royal Bengal Tigers",
-      location: "Sundarbans",
-      rating: 4.7,
-      color: "indigo",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1464822759844-d150baec0494?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      heading: "Hill Tracts Adventure",
-      sub: "Discover tribal culture and misty mountain landscapes",
-      location: "Bandarban & Rangamati",
-      rating: 4.6,
-      color: "pink",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1513326738677-b964603b136d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      heading: "Heritage Dhaka",
-      sub: "Explore 400 years of Mughal architecture and old city charm",
-      location: "Old Dhaka",
-      rating: 4.5,
-      color: "emerald",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      heading: "Tea Garden Serenity",
-      sub: "Rolling green hills and aromatic tea plantations",
-      location: "Sylhet Division",
-      rating: 4.8,
-      color: "teal",
-    },
-  ];
-
-  const customRenderArrowPrev = (onClickHandler, hasPrev, label) =>
-    hasPrev && (
-      <motion.button
-        onClick={onClickHandler}
-        title={label}
-        whileHover={{ scale: 1.1, x: -3 }}
-        whileTap={{ scale: 0.9 }}
-        className="absolute left-6 top-1/2 z-20 -translate-y-1/2 w-14 h-14 rounded-full bg-black/30 backdrop-blur-md border border-gray-600/50 flex items-center justify-center text-white hover:bg-indigo-600/60 hover:border-indigo-400/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] group"
-      >
-        <FaChevronLeft className="text-lg group-hover:text-cyan-300 transition-colors duration-300" />
-      </motion.button>
-    );
-
-  const customRenderArrowNext = (onClickHandler, hasNext, label) =>
-    hasNext && (
-      <motion.button
-        onClick={onClickHandler}
-        title={label}
-        whileHover={{ scale: 1.1, x: 3 }}
-        whileTap={{ scale: 0.9 }}
-        className="absolute right-6 top-1/2 z-20 -translate-y-1/2 w-14 h-14 rounded-full bg-black/30 backdrop-blur-md border border-gray-600/50 flex items-center justify-center text-white hover:bg-indigo-600/60 hover:border-indigo-400/80 transition-all duration-300 hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] group"
-      >
-        <FaChevronRight className="text-lg group-hover:text-cyan-300 transition-colors duration-300" />
-      </motion.button>
-    );
-
-  const customRenderIndicator = (onClickHandler, isSelected, index, label) => {
-    const slide = slides[index];
-    return (
-      <motion.button
-        onClick={onClickHandler}
-        onFocus={onClickHandler}
-        value={index}
-        key={index}
-        role="button"
-        tabIndex={0}
-        title={`${label} ${index + 1}`}
-        aria-label={`${label} ${index + 1}`}
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 0.9 }}
-        className={`
-          inline-block w-4 h-4 mx-2 rounded-full cursor-pointer transition-all duration-300 backdrop-blur-sm border-2
-          ${
-            isSelected
-              ? `bg-${slide.color}-500 border-${slide.color}-400 shadow-[0_0_15px_rgba(99,102,241,0.8)] animate-pulse`
-              : "bg-white/30 border-gray-400/50 hover:bg-white/50 hover:border-white/70"
-          }
-        `}
-      />
-    );
-  };
-
+export default function HeroCarousel() {
   return (
-    <div className="relative overflow-hidden h-[60vh]  w-full rounded-3xl">
+    <div className="relative h-[33vh] w-full rounded-3xl">
+      {/* Carousel */}
       <Carousel
+        infiniteLoop
+        autoPlay
         showThumbs={false}
         showStatus={false}
-        infiniteLoop={true}
-        autoPlay={true}
-        interval={6000}
-        transitionTime={1000}
-        swipeable={true}
-        emulateTouch={true}
-        selectedItem={currentSlide}
-        onChange={setCurrentSlide}
-        renderArrowPrev={customRenderArrowPrev}
-        renderArrowNext={customRenderArrowNext}
-        renderIndicator={customRenderIndicator}
-        className="h-full"
+        showArrows={true}
+        interval={4000}
+        className="h-full rounded-3xl"
       >
-        {slides.map((slide, index) => (
-          <div key={index} className="relative h-[70vh] md:h-[80vh]">
-            {/* Background Image with Parallax Effect */}
-            <div className="absolute inset-0 overflow-hidden">
-              <motion.img
-                src={slide.img}
-                alt={slide.heading}
-                className="w-full h-full object-cover scale-110"
-                initial={{ scale: 1.1 }}
-                animate={{ scale: currentSlide === index ? 1 : 1.1 }}
-                transition={{ duration: 8, ease: "easeOut" }}
-              />
-
-              {/* Multi-layer Gradients */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40"></div>
-              <div
-                className={`absolute inset-0 bg-gradient-to-br from-${slide.color}-900/20 via-transparent to-purple-900/20`}
-              ></div>
-            </div>
-
-            {/* Floating Elements */}
-            <div className="absolute top-10 left-10 z-10">
-              <motion.div
-                className="flex items-center space-x-2 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-gray-600/50"
-                initial={{ opacity: 0, x: -50 }}
-                animate={{
-                  opacity: currentSlide === index ? 1 : 0,
-                  x: currentSlide === index ? 0 : -50,
-                }}
-                transition={{ delay: 0.5, duration: 0.6 }}
-              >
-                <FaMapMarkerAlt className={`text-${slide.color}-400`} />
-                <span className="text-white text-sm font-medium">
-                  {slide.location}
-                </span>
-              </motion.div>
-            </div>
-
-            <div className="absolute top-10 right-10 z-10">
-              <motion.div
-                className="flex items-center space-x-1 bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-gray-600/50"
-                initial={{ opacity: 0, x: 50 }}
-                animate={{
-                  opacity: currentSlide === index ? 1 : 0,
-                  x: currentSlide === index ? 0 : 50,
-                }}
-                transition={{ delay: 0.7, duration: 0.6 }}
-              >
-                <FaStar className="text-yellow-400" />
-                <span className="text-white text-sm font-medium">
-                  {slide.rating}
-                </span>
-              </motion.div>
-            </div>
-
-            {/* Main Content */}
-            <div className="container mx-auto relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-              <AnimatePresence mode="wait">
-                {currentSlide === index && (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -50, scale: 0.9 }}
-                    transition={{
-                      duration: 0.8,
-                      type: "spring",
-                      stiffness: 100,
-                    }}
-                    className="max-w-4xl"
-                  >
-                    {/* Heading */}
-                    <motion.h1
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.2 }}
-                      className={`
-                        text-5xl md:text-7xl font-black tracking-tight text-white mb-6
-                        bg-gradient-to-r from-white via-${slide.color}-200 to-white bg-clip-text text-transparent
-                        drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]
-                      `}
-                    >
-                      {slide.heading}
-                    </motion.h1>
-
-                    {/* Subtitle */}
-                    <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      className={`
-                        text-xl md:text-3xl text-${slide.color}-200 mb-10 font-light
-                        drop-shadow-[0_0_20px_rgba(99,102,241,0.5)]
-                      `}
-                    >
-                      {slide.sub}
-                    </motion.p>
-
-                    {/* CTA Button */}
-                    <div
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 200,
-                        damping: 15,
-                        delay: 0.6,
-                      }}
-                      whileHover={{
-                        scale: 1.05,
-                        boxShadow: `0 0 40px rgba(99, 102, 241, 0.8)`,
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`
-                        relative inline-flex items-center gap-3 px-10 py-4 
-                        bg-gradient-to-r from-${slide.color}-600 via-purple-600 to-indigo-600 
-                        hover:from-${slide.color}-500 hover:via-purple-500 hover:to-indigo-500
-                        text-white font-bold rounded-full text-lg tracking-wide 
-                        transition-all duration-300 overflow-hidden group
-                        border-2 border-${slide.color}-400/50 hover:border-${slide.color}-300
-                        backdrop-blur-sm
-                      `}
-                    >
-                      <motion.span
-                        className="text-2xl"
-                        animate={{ rotate: [0, 10, -10, 0] }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          repeatDelay: 3,
-                        }}
-                      >
-                        🌏
-                      </motion.span>
-                      <span className="relative z-10">
-                        <Link to="/all-trips">Book Your Tour</Link>
-                      </span>
-
-                      {/* Animated border */}
-                      <div className="absolute inset-0 rounded-full border-2 border-white/30 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all duration-500"></div>
-
-                      {/* Shimmer effect */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Bottom Glow Effect */}
-            <div
-              className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-96 h-32 bg-gradient-to-t from-${slide.color}-500/30 to-transparent blur-3xl`}
-            ></div>
+        {slides.map((slide) => (
+          <div key={slide.id} className="h-[33vh] rounded-3xl">
+            <img
+              src={slide.img}
+              alt={slide.alt}
+              className="object-covef h-full w-full rounded-3xl"
+            />
           </div>
         ))}
       </Carousel>
 
-      {/* Animated Progress Bar */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
-        <div className="flex items-center space-x-3 bg-black/40 backdrop-blur-md px-6 py-3 rounded-full border border-gray-600/50">
-          <span className="text-white/70 text-sm font-medium">
-            {String(currentSlide + 1).padStart(2, "0")}
-          </span>
-          <div className="w-16 h-1 bg-gray-600/50 rounded-full overflow-hidden">
-            <motion.div
-              className={`h-full bg-gradient-to-r from-${slides[currentSlide].color}-400 to-purple-400 rounded-full`}
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{ duration: 6, repeat: Infinity }}
-              key={currentSlide}
-            />
-          </div>
-          <span className="text-white/70 text-sm font-medium">
-            {String(slides.length).padStart(2, "0")}
-          </span>
+      {/* Transparent Overlay */}
+      <div className="absolute inset-0 bg-[#D9D9D9]/50 flex items-center justify-center rounded-3xl">
+        <div className="text-center space-y-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-gray-800">
+            Find Your Dream Property
+          </h2>
+          <input
+            type="text"
+            placeholder="Search properties..."
+            className="px-4 py-2 rounded-lg border border-gray-400 w-72 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <p className="text-gray-700 text-sm md:text-base">
+            Explore best listings for rent & sale
+          </p>
         </div>
       </div>
     </div>
   );
-};
-
-export default Slider;
+}
