@@ -1,6 +1,7 @@
 "use client";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import SearchInput from "../../../../../components/SearchInput";
 
 const slides = [
   {
@@ -45,10 +46,10 @@ export default function HeroCarousel() {
       </Carousel>
 
       {/* Transparent Overlay */}
-      <div className="absolute inset-0  bg-black/60 flex  items-cente justify-center rounded-3xl text-white">
+      <div className="absolute inset-0  bg-black/60 flex  items-cente justify-center rounded-3xl text-white py-10 border border-red-500">
         <div>
           <div className="text-center space-y-4 border">
-            <h2 className="text-2xl font-semibold">
+            <h2 className="text-2xl font-black">
               Find Your Dream Home in One Click!
             </h2>
 
@@ -56,12 +57,11 @@ export default function HeroCarousel() {
               Discover, Buy, or Rent Verified Properties with Ease.
             </p>
           </div>
-          <div>
-            <input
-              type="text"
-              placeholder="Search properties..."
-              className="px-4 py-2 rounded-lg border border-gray-400 w-72 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+          <div className="flex  items-center gap-4 justify-between border border-green-500 w-full">
+            <SearchInput />
+            <button className="badge w-fit rounded-full  px-3 py-4 ">
+              List Your Property
+            </button>
           </div>
         </div>
       </div>
