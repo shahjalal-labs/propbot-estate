@@ -1,4 +1,5 @@
-"use client";
+import slide1 from "./slider1.png";
+import slider2 from "./slider2.jpg";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import SearchInput from "../../../../../components/SearchInput";
@@ -6,12 +7,12 @@ import SearchInput from "../../../../../components/SearchInput";
 const slides = [
   {
     id: 1,
-    img: "https://picsum.photos/1200/500?random=1",
+    img: slide1,
     alt: "Property 1",
   },
   {
     id: 2,
-    img: "https://picsum.photos/1200/500?random=2",
+    img: slider2,
     alt: "Property 2",
   },
   {
@@ -46,8 +47,8 @@ export default function HeroCarousel() {
       </Carousel>
 
       {/* Transparent Overlay */}
-      <div className="absolute inset-0  bg-black/60 flex  items-cente justify-center rounded-3xl text-white py-10 border border-red-500">
-        <div>
+      <div className="absolute inset-0  bg-black/20 flex   justify-center rounded-3xl text-white py-10 border border-red-500">
+        <div className=" w-full">
           <div className="text-center space-y-4 border">
             <h2 className="text-2xl font-black">
               Find Your Dream Home in One Click!
@@ -57,7 +58,7 @@ export default function HeroCarousel() {
               Discover, Buy, or Rent Verified Properties with Ease.
             </p>
           </div>
-          <div className="flex  items-center gap-4 justify-between border border-green-500 w-full">
+          <div className="flex  items-center gap-4 justify-around border border-green-500 w-full flex-1 pt-44">
             <SearchInput />
             <button className="badge w-fit rounded-full  px-3 py-4 ">
               List Your Property
