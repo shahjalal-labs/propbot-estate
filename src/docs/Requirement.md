@@ -1,309 +1,110 @@
-# 🧭 Tourism Management System — assignment12_category_003
+# 🏡 ReactJS Frontend Development Assignment
 
-## 📽️ Requirement Explanation Video
+## 🎯 Objective
 
-[📺 Watch the Explanation Video](https://drive.google.com/file/d/14qDDk_X7epplTmbyCc4nIV2RVYSzn46H/view) <br />
-[assignment12_category_003](https://docs.google.com/document/d/1YPsSMpi7LdVZrunRImvGrhZbwV0QK6TwGi4V6T2L6eY/edit?tab=t.0#heading=h.g0wknetbxo3t)
+Build a Real Estate Web Application based on the provided Figma design.  
+The application should fetch property listings from an API and implement authentication using Firebase.
 
----
-
-## 🧩 Project Overview
-
-The **Tourist Guide** site is an online platform to help travelers explore **Bangladesh**. It provides:
-
-- Detailed tourist destination info
-- Cultural insights, food, activities
-- Famous landmarks & hidden gems
+📅 **The deadline for submission is 4 days.**
 
 ---
 
-## ✅ Key Rules
+## 🔹 Requirements
 
-| Criteria                   | Minimum Required                                                                              |
-| -------------------------- | --------------------------------------------------------------------------------------------- |
-| Client Side GitHub Commits | 20 notable commits                                                                            |
-| Server Side GitHub Commits | 12 notable commits                                                                            |
-| `README.md`                | ✅ Website Name<br>✅ Admin Credentials<br>✅ Live Site URL<br>✅ At least 10 bullet features |
-| Responsiveness             | ✅ Mobile<br>✅ Tablet<br>✅ Desktop<br>✅ Dashboard Responsive                               |
-| Private Route Persistence  | ✅ After reload, user stays logged in                                                         |
-| Secure Keys                | ✅ Firebase & MongoDB credentials via `.env`                                                  |
-| No Lorem Ipsum             | ❌ Don't use placeholder text                                                                 |
-| Notifications              | ✅ Use SweetAlert/Toasts (❌ No default browser alerts)                                       |
-| Data Fetching (GET only)   | ✅ Use TanStack Query                                                                         |
+### 1. 📑 Pages to Build (from Figma)
 
----
+**Figma Link: assignment**
 
-## 👥 User Roles
+- 🏠 **Home Page**
 
-- **Tourist (Normal User)**
-- **Tour Guide**
-- **Admin**
+  - Hero section with banner.
+  - “What We Do” section (4 cards).
+  - Featured Properties (API data).
+  - Properties available for sale and rent (API data).
+  - Newsletter subscription section.
+  - Footer.
 
----
+- 🏘️ **Property Listing Page**
 
-## 📐 Layouts
+  - Display list of properties fetched from API.
+  - Filter by property type (sale / rent).
 
-### 1. Basic Layout
+- 📝 **Signup Page**
 
-- **Navbar**: Logo + Website Name, `Home`, `Community`, `About Us`, `Trips`, `Login/Register`
-- **Profile Dropdown**:
+  - Form with name, email, password, confirm password.
+  - On success → register user using Firebase Authentication.
+  - Redirect user to login page.
 
-  - Dashboard
-  - Offer Announcements _(optional)_
-  - Username & Email (not clickable)
-  - Logout
-
-- **Footer**: Logo + Useful Developer Social Links
-
-### 2. Dashboard Layout
-
-- Sidebar + Footer + Dynamic content via routes
+- 🔑 **Login Page**
+  - Form with email + password.
+  - On success → authenticate with Firebase Authentication.
+  - Store user session (localStorage/Context).
+  - Redirect user to homepage.
 
 ---
 
-## 🔐 Authentication
+### 2. 🌐 API for Properties
 
-- Register with: name, email, image, password
-- Login: email + password + Google login
-- Password validations (strong passwords)
-- Token-based auth (JWT) stored in `localStorage`
-- On logout: remove token
-- Forgot password feature
-- Redirect to previous page or homepage after login
+Use this API: https://68b826bcb715405043274639.mockapi.io/api/properties/PropertyListing
 
----
+Each property should have:
 
-## 🏠 Home Page Structure
+```json
+{
+  "createdAt": "2025-09-02T19:04:31.145Z",
+  "name": "Lester Hackett",
+  "buildingNumber": "764",
+  "cardinalDirection": "South",
+  "city": "Andersonfurt",
+  "country": "Tajikistan",
+  "countryCode": "HM",
+  "latitude": -68.6896,
+  "longitude": -9.4525,
+  "state": "New Jersey",
+  "timeZone": "America/Belize",
+  "image": "https://picsum.photos/seed/rko0Qcmc/1736/389",
+  "ownerName": "Christy Hane",
+  "contactNumber": "1-839-606-5135 x9492",
+  "id": "1"
+}
+```
 
-### 1. Banner/Slider
+### ⚙️ Technical Guidelines
 
-- Design based on your theme
-
-### 2. Overview Section
-
-- Include a video or multimedia overview of your platform
-
-### 3. Tourism & Travel Guide Tabs
-
-### 🔹 Our Packages
-
-- Use MongoDB `$sample` to show **3 random packages** each visit
-- Card format: Photo, Tour Type, Title, Price, `View Package` button
-- `View Package` ➜ navigates to **Package Details Page**
-
-#### 🔹 Meet Our Tour Guides
-
-- Show **6 random guides**
-- Relevant info + `Details` button ➜ goes to **Tour Guide Profile**
-
-### 4. Tourist Story Section
-
-- Show **4 random stories** with:
-  - Share button via `react-share` (Facebook)
-  - Only logged-in users can share
-  - `All Stories` ➜ navigates to **Community Page**
-
-### 5. Additional Custom Sections
-
-- Add 2 sections based on tourism concepts
+- ⚛️ Use React.js (Functional Components + Hooks).
+- 🧭 Use React Router for navigation.
+- 🔐 Use Firebase Authentication for signup & login.
+- 🎨 CSS Framework: TailwindCSS / Bootstrap (or plain CSS).
+- 📱 Make the design responsive (desktop & mobile).
+- 💾 Store logged-in user state (Context API / localStorage).
 
 ---
 
-## 🗺️ Package Details Page
+## 📂 Deliverables
 
-### Gallery Section
+A GitHub repository with:
 
-- Show multiple images of the tour (no design copy-paste)
+- 📦 `src/components/` → reusable UI components (Navbar, Footer, Card, Form, etc.)
+- 📄 `src/pages/` → page-level components (Home, Listings, Login, Signup)
+- 🔧 `src/services/` → Firebase configuration + API helpers
 
-### About the Tour
+A **README.md** file with:
 
-- Give detailed tour information
+- 📖 Setup instructions (how to run the app)
+- 🔥 Firebase setup steps
+- 🖼️ Screenshots of each page
 
-### Tour Plan
+🎥 A link to the video demonstration of the assignment has been created.  
+Please upload the video of the project to the drive and share the link with us.
 
-- Day-wise structured breakdown (custom design)
-
-### Tour Guide List
-
-- Clickable guide list ➜ goes to **Guide Profile**
-
-### Booking Form
-
-| Field             | Type        |
-| ----------------- | ----------- |
-| Package Name      | Auto-filled |
-| Tourist Name      | Read-only   |
-| Tourist Email     | Read-only   |
-| Tourist Image/URL | Read-only   |
-| Price             | Manual      |
-| Tour Date         | Date picker |
-| Tour Guide Name   | Dropdown    |
-
-- `Book Now` ➜ Auth-protected
-- On booking:
-  - Save with status = `pending`
-  - Show modal: "Confirm your Booking"
-  - Show link ➜ **My Bookings Page**
+🚀 Deploy the website on any free platform (e.g. Vercel, Netlify, etc.) and share its link with us
 
 ---
 
-## 👥 Community Page
+## ✅ Evaluation Criteria
 
-- Show all shared stories
-- Allow sharing via `react-share`
-
----
-
-## 🧑‍💻 About Us Page
-
-- Developer Info
-- Number of projects
-- Project links
-
----
-
-## 🌏 All Trips Page
-
-- Show all packages as cards
-- Each card ➜ navigates to **Package Details Page**
-
----
-
-## 👨‍✈️ Tour Guide Profile Page
-
-- Relevant guide info
-- Show their added stories
-
----
-
-## 🧑‍💼 Tourist Dashboard (Protected)
-
-### Dashboard Routes:
-
-1. **Manage Profile**
-
-   - Welcome message
-   - Info, picture, role
-   - Edit modal (except email & role)
-   - `Join as Tour Guide` ➜ form route
-
-2. **My Bookings**
-
-| Field        | Description                     |
-| ------------ | ------------------------------- |
-| Package Name | Tour Package Name               |
-| Guide Name   | Selected Tour Guide Name        |
-| Tour Date    | Selected Tour Date              |
-| Tour Price   | Package Price                   |
-| Status       | In Review / Rejected / Accepted |
-| Actions      | Pay, Cancel (if pending)        |
-
-- Pay ➜ Payment Route (Stripe)
-- On success ➜ Change status to `in review`
-
-3. **Add Stories**
-
-   - Title, Description, Multiple Images
-   - Save ➜ Go to `Manage Stories`
-
-4. **Manage Stories**
-
-   - Cards of user's stories
-   - Edit ➜ separate route
-     - Remove images using `$pull`
-     - Add images using `$push`
-   - Delete ➜ permanently remove
-
-5. **Join as Tour Guide**
-   - Form: Title, Why become a guide, CV link
-   - Submit ➜ Show modal
-
----
-
-## 🧭 Tour Guide Dashboard (Protected)
-
-### Dashboard Routes:
-
-1. **Manage Profile** (same as Tourist)
-
-2. **My Assigned Tours**
-
-| Field        | Description                               |
-| ------------ | ----------------------------------------- |
-| Package Name | Name                                      |
-| Tourist Name | Name                                      |
-| Tour Date    | Date                                      |
-| Price        | Price                                     |
-| Status       | Pending / In Review / Accepted / Rejected |
-| Actions      | Accept, Reject                            |
-
-- Accept ➜ Enabled if `in review`
-- Reject ➜ Show modal, set status to `rejected`
-
-3. **Add / Manage Stories** (same as Tourist)
-
----
-
-## 👑 Admin Dashboard (Protected)
-
-### Dashboard Routes:
-
-1. **Manage Profile**
-   - Welcome message
-   - Show statistics:
-
-| Metric            | Description         |
-| ----------------- | ------------------- |
-| Total Payment     | Sum of all payments |
-| Total Tour Guides | Count guides        |
-| Total Packages    | Count all packages  |
-| Total Clients     | Count tourists      |
-| Total Stories     | Count all stories   |
-
-- Edit modal (except email & role)
-
-2. **Add Package**
-
-   - Package form ➜ Submit to save
-
-3. **Manage Users**
-
-   - Table: info + roles
-   - Search by Name/Email
-   - Filter by Role (Dropdown with `react-select`)
-
-4. **Manage Candidates**
-   - Applications Table
-     - Accept ➜ Change role to `tour-guide` & remove application
-     - Reject ➜ Remove application
-
----
-
-## 🧪 Challenge Requirements
-
-| Feature                           | Requirement                               |
-| --------------------------------- | ----------------------------------------- |
-| Pagination                        | Show 10 items per page on all tables      |
-| JWT Auth                          | Use `localStorage`                        |
-| Booking Milestone Reward          | If booked >3 times ➜ show confetti modal  |
-| Framer Motion / React Spring etc. | Must be used in at least homepage section |
-
----
-
-## ⭐ Optional Features
-
-- Swiper / react-awesome-slider / light gallery
-- Axios Interceptor
-- Notification for Offer Announcements
-
----
-
-## ✅ What to Submit
-
-| Field                        | Example                         |
-| ---------------------------- | ------------------------------- |
-| **Admin Email**              | `admin@example.com`             |
-| **Admin Password**           | `********`                      |
-| **Live Site URL**            | `https://your-project.web.app`  |
-| **Client GitHub Repository** | `https://github.com/.../client` |
-| **Server GitHub Repository** | `https://github.com/.../server` |
+- 🎯 Pixel-perfect UI (close to Figma design).
+- 🔑 Proper Firebase Authentication integration.
+- 🌐 API data integrated dynamically (no hardcoded listings).
+- 🧹 Code structure & readability.
+- 🤝 Responsive and user-friendly.
