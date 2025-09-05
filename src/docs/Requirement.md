@@ -4,6 +4,7 @@
 
 Build a Real Estate Web Application based on the provided Figma design.  
 The application should fetch property listings from an API and implement authentication using Firebase.
+📄 Root Docs URL: [Google Docs Link](https://docs.google.com/document/d/14Dxmfcd3C0OEGisHxCYTRnTcDAwknmMElJBWfUWmVuw/edit)
 
 📅 **The deadline for submission is 4 days.**
 

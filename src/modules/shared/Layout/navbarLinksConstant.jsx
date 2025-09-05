@@ -1,6 +1,13 @@
 // navbarLinks.jsx
 import { NavLink } from "react-router";
-import { Home, LayoutDashboard, Plane, Users, Info } from "lucide-react";
+import {
+  Home,
+  ShoppingBag,
+  Key,
+  BadgeDollarSign,
+  Info,
+  Phone,
+} from "lucide-react";
 
 export const navItems = [
   {
@@ -10,28 +17,34 @@ export const navItems = [
     emoji: "🏠",
   },
   {
-    name: "Dashboard",
-    path: "/dashboard",
-    icon: <LayoutDashboard className="w-4 h-4" />,
-    emoji: "📊",
+    name: "Buy",
+    path: "/buy",
+    icon: <ShoppingBag className="w-4 h-4" />,
+    emoji: "🛒",
   },
   {
-    name: "All Trips",
-    path: "/all-trips",
-    icon: <Plane className="w-4 h-4" />,
-    emoji: "🌍",
+    name: "Rent",
+    path: "/rent",
+    icon: <Key className="w-4 h-4" />,
+    emoji: "🔑",
   },
   {
-    name: "Community",
-    path: "/community",
-    icon: <Users className="w-4 h-4" />,
-    emoji: "🧑‍🤝‍🧑",
+    name: "Sell",
+    path: "/sell",
+    icon: <BadgeDollarSign className="w-4 h-4" />,
+    emoji: "💰",
   },
   {
     name: "About Us",
     path: "/about-us",
     icon: <Info className="w-4 h-4" />,
     emoji: "ℹ️",
+  },
+  {
+    name: "Contact Us",
+    path: "/contact-us",
+    icon: <Phone className="w-4 h-4" />,
+    emoji: "📞",
   },
 ];
 
