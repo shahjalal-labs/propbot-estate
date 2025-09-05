@@ -12,14 +12,13 @@
 
 /* body { */
 /*   font-family: "Inter", sans-serif; */
-/*   color: #6a7282; */
-/*   background-color: black; */
+/*   color: #cbd5e1; /* slate-300 */
+*/
+/*   background-color: #0f172a; /* slate-900 from Tailwind */ */
 /* } */
 
 body {
   font-family: "Inter", sans-serif;
-  color: #cbd5e1; /* slate-300 */
-  background-color: #0f172a; /* slate-900 from Tailwind */
 }
 .flex-container {
   @apply flex  items-center justify-center;

@@ -12,7 +12,7 @@ const Navbar = () => {
   const { user } = useAuth();
 
   return (
-    <motion.nav {...topToBottom} className="navbar max-container ">
+    <motion.nav {...topToBottom} className="navbar max-container text-black ">
       {/* Left Section */}
       <div className="navbar-start">
         {/* Mobile Menu Button */}

@@ -80,7 +80,7 @@ export const desktopNavLinks = () =>
         ${
           isActive
             ? "text-[#00FF9C] font-semibold border-cyan-500 bg-white/10 backdrop-blur-sm shadow"
-            : "text-slate-300 hover:text-[#00FF9C] hover:border-cyan-500 hover:bg-white/10 hover:backdrop-blur-sm"
+            : " hover:text-[#00FF9C] hover:border-cyan-500 hover:bg-white/10 hover:backdrop-blur-sm"
         }`
       }
     >

@@ -14,7 +14,7 @@ const Brand = () => {
           transition: { duration: 9, repeat: Infinity },
         }}
       >
-        DeshGuide
+        PropBot Estate
       </motion.button>
     </div>
   );
