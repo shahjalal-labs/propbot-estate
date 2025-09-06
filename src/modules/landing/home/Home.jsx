@@ -15,6 +15,7 @@ import CallToActionFull from "./CallToActionFull/CallToActionFull.jsx";
 import TrendingDestinations from "./TrendingDestinations/TrendingDestinations.jsx";
 import "react-tabs/style/react-tabs.css";
 import ExploreTabs from "./ExploreTabs/ExploreTabs.jsx";
+import Services from "../../../components/services/Services.jsx";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
       <UseHelmet title="Home" />
 
       <Banner />
+      <Services />
       <Overview />
 
       {/* Tab View Section for Packages and Guides */}
