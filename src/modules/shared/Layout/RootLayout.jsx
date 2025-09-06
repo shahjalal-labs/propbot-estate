@@ -14,7 +14,7 @@ const RootLayout = () => {
         <Navbar />
       </div>
       {/* <NavbarDrawer /> */}
-      <div className="min-h-[60vh] w-11/12 mx-auto ">
+      <div className="min-h-[60vh] max-container ">
         <Outlet />
       </div>
       <div className="bg-gradient-to-b from-[#0e0e0e] to-[#1a1a1a]">
