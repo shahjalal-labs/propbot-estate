@@ -1,3 +1,7 @@
+import location from "./locationIcon.png";
+import serviceImage1 from "./serviceImage1.png";
+import star from "./starIcon.png";
+
 const ServiceCard = () => {
   return (
     <div className="card  max-w-[340px] shadow-sm bg-[#F1F1F1]">
